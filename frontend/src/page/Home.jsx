@@ -33,7 +33,7 @@ function Home() {
 
     const fetchTags = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/tags/getTags");
+        const response = await axios.get("https://tube-aoyd.onrender.com/api/v1/tags/getTags");
         const data = response.data.data;
         setTags(shuffleArray(data)); // Shuffle the tags before setting them
         setTimeout(updateScrollButtons, 50);
