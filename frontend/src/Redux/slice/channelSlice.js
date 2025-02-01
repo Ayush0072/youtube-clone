@@ -20,7 +20,7 @@ export const createChannel = createAsyncThunk(
     "channel/createChannel",
     async (channelData, { rejectWithValue }) => {
         try {
-            const response = await axios.post("/api/v1/channel/create", channelData, {
+            const response = await axios.post("https://tube-aoyd.onrender.com/api/v1/channel/create", channelData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // Attach authorization token
                 },
@@ -40,7 +40,7 @@ export const getChannel = createAsyncThunk(
     "channel/data",
     async (channelId, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`/api/v1/channel/data/${channelId}`);
+            const response = await axios.get(`https://tube-aoyd.onrender.com/api/v1/channel/data/${channelId}`);
             return response.data.data; // Return channel data on success
         } catch (error) {
             return rejectWithValue(error.response?.data?.error || "Failed to fetch channel data");
@@ -56,7 +56,7 @@ export const updateChannel = createAsyncThunk(
     "channel/updateChannel",
     async ({ channelId, formData }, { rejectWithValue }) => {
         try {
-            const response = await axios.put(`/api/v1/channel/update/${channelId}`, formData, {
+            const response = await axios.put(`https://tube-aoyd.onrender.com/api/v1/channel/update/${channelId}`, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                     "Content-Type": "multipart/form-data", // Required for file uploads
@@ -77,7 +77,7 @@ export const deleteChannel = createAsyncThunk(
     "channel/delete",
     async (channelId, { rejectWithValue }) => {
         try {
-            const response = await axios.delete(`/api/v1/channel/delete/${channelId}`, {
+            const response = await axios.delete(`https://tube-aoyd.onrender.com/api/v1/channel/delete/${channelId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },
@@ -97,7 +97,7 @@ export const subscribeChannel = createAsyncThunk(
     "channel/subscribe",
     async (channelId, { rejectWithValue }) => {
         try {
-            const response = await axios.post(`/api/v1/channel/subscribe/${channelId}`, {
+            const response = await axios.post(`https://tube-aoyd.onrender.com/api/v1/channel/subscribe/${channelId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },
@@ -117,7 +117,7 @@ export const unsubscribeChannel = createAsyncThunk(
     "channel/unsubscribe",
     async (channelId, { rejectWithValue }) => {
         try {
-            const response = await axios.post(`/api/v1/channel/unsubscribe/${channelId}`, {
+            const response = await axios.post(`https://tube-aoyd.onrender.com/api/v1/channel/unsubscribe/${channelId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },

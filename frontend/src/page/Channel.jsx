@@ -24,7 +24,7 @@ const Channel = () => {
         const fetchChannelData = async () => {
             try {
                 // Make a request to fetch channel data
-                const response = await axios.get(`https://tube-frontend.onrender.com/api/v1/channel/data/${id}`);
+                const response = await axios.get(`https://tube-aoyd.onrender.com/api/v1/channel/data/${id}`);
                 if (response.data.message === "Channel fetched successfully") {
                     setChannelData(response.data.data);  // Set channel data if successful
                 }

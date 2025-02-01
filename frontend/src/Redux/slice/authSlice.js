@@ -20,7 +20,7 @@ export const register = createAsyncThunk(
     '/api/v1/account/signup',
     async (userData, { rejectWithValue }) => {
         try {
-            const response = await axios.post('/api/v1/account/signup', userData);
+            const response = await axios.post('https://tube-aoyd.onrender.com/api/v1/account/signup', userData);
             return response.data.data; // Return user data on success
         } catch (error) {
             return rejectWithValue(error.response.data.message); // Return error message
@@ -36,7 +36,7 @@ export const login = createAsyncThunk(
     '/api/v1/account/login',
     async (userData, { rejectWithValue }) => {
         try {
-            const response = await axios.post('/api/v1/account/login', userData);
+            const response = await axios.post('https://tube-aoyd.onrender.com/api/v1/account/login', userData);
             return response.data.data; // Return user data and access token on success
         } catch (error) {
             return rejectWithValue(error.response.data.message); // Return error message
@@ -52,7 +52,7 @@ export const logout = createAsyncThunk(
     '/api/v1/account/logout',
     async (_, { rejectWithValue }) => {
         try {
-            await axios.post('/api/v1/account/logout');
+            await axios.post('https://tube-aoyd.onrender.com/api/v1/account/logout');
             return true; // Successful logout returns true
         } catch (error) {
             return rejectWithValue(error.response.data.message); // Return error message
@@ -68,7 +68,7 @@ export const getUserData = createAsyncThunk(
     '/api/v1/account/getUserData',
     async (userId, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`/api/v1/account/userData/${userId}`);
+            const response = await axios.get(`https://tube-aoyd.onrender.com/api/v1/account/userData/${userId}`);
             return response.data.data; // Return the user data
         } catch (error) {
             return rejectWithValue(error.response.data.message); // Return error message
@@ -84,7 +84,7 @@ export const deleteAccount = createAsyncThunk(
     '/api/v1/account/deleteAccount',
     async (userId, { rejectWithValue }) => {
         try {
-            const response = await axios.delete(`/api/v1/account/delete/${userId}`);
+            const response = await axios.delete(`https://tube-aoyd.onrender.com/api/v1/account/delete/${userId}`);
             return response.data.message; // Return success message
         } catch (error) {
             return rejectWithValue(error.response.data.message); // Return error message
@@ -100,7 +100,7 @@ export const updateAccount = createAsyncThunk(
     '/api/v1/account/updateAccount',
     async ({ userId, formData }, { rejectWithValue }) => {
         try {
-            const response = await axios.put(`/api/v1/account/update/${userId}`, formData, {
+            const response = await axios.put(`https://tube-aoyd.onrender.com/api/v1/account/update/${userId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data', // Required for file uploads
                 },
